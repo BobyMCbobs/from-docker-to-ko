@@ -1,0 +1,18 @@
+name: build
+
+on:
+  push: {}
+  release:
+    types: [published]
+  workflow_dispatch: {}
+
+permissions:
+  packages: write
+  contents: write
+  pull-requests: write
+  id-token: write
+  security-events: write
+
+jobs:
+  build:
+    uses: BobyMCbobs/from-docker-to-ko/.github/workflows/reusable-build.yml@main
