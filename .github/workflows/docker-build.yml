@@ -33,8 +33,8 @@ jobs:
         include: ${{ fromJSON(needs.prepare.outputs.matrix) }}
     uses: BobyMCbobs/from-docker-to-ko/.github/workflows/reusable-build.yml@main
     with:
-      context: apps/${{ fromJSON(toJSON(matrix)).target }}
-      dockerfile: apps/${{ fromJSON(toJSON(matrix)).target }}/Dockerfile
+      context: .
+      dockerfile: ./${{ fromJSON(toJSON(matrix)).target }}.Dockerfile
       imageName: ${{ fromJSON(toJSON(matrix)).target }}
       platforms: 'linux/amd64,linux/arm64'
       push: ${{ github.ref_name == 'main' }}
